@@ -1,5 +1,3 @@
-// funciones globales de validación de formato
-
 function validarMateriales() {
     const materiales = document.querySelectorAll("input[name='material[]']:checked");
     const span = document.getElementById("errorMaterial");
