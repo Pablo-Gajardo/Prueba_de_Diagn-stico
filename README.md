@@ -15,12 +15,25 @@ El proyecto incluye validaciones en tiempo real para cada campo del formulario y
 
 ---
 
+## Requisitos de instalación
+
+Antes de comenzar asegúrate de tener instalado en tu máquina:
+
+- [Git](https://git-scm.com/)  
+- [Docker](https://www.docker.com/get-started) (última versión recomendada).  
+- **Nota:** Si cuentas con Docker en su versión más reciente, **no necesitas instalar Docker Compose por separado**, ya que viene integrado en el propio comando `docker`.  
+  - En versiones antiguas de Docker deberás instalar [Docker Compose](https://docs.docker.com/compose/) manualmente.  
+
+---
+
 ## Pasos para instalar y ejecutar el proyecto
 
 1. Clonar el repositorio en tu máquina:
 
 ```bash
-git clone 
+git clone https://github.com/Pablo-Gajardo/Prueba_de_Diagn-stico.git
+```
+```bash
 cd Prueba_de_Diagnóstico
 ```
 
