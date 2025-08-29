@@ -1,0 +1,62 @@
+# Formulario de Productos con PHP y PostgreSQL
+
+Este proyecto es un sistema web para registrar productos en una base de datos PostgreSQL, desarrollado con PHP y Docker. Permite gestionar productos con sus bodegas, sucursales, monedas, materiales y descripción, de manera rápida y sencilla.
+
+El proyecto incluye validaciones en tiempo real para cada campo del formulario y carga dinámica de los select de Bodega, Sucursal y Moneda desde la base de datos.
+
+---
+
+## Tecnologías utilizadas
+
+- **Frontend:** HTML, CSS y JavaScript
+- **Backend:** PHP 8.2 con Apache
+- **Base de datos:** PostgreSQL 15
+- **Contenedores:** Docker y Docker Compose
+
+---
+
+## Pasos para instalar y ejecutar el proyecto
+
+1. Clonar el repositorio en tu máquina:
+
+```bash
+git clone 
+cd Prueba_de_Diagnóstico
+```
+
+2. Levantar los contenedores con Docker Compose. Esto descargará las imágenes de PHP 8.2 y PostgreSQL 15, y creará la base de datos con los datos iniciales:
+
+```bash 
+docker-compose up --build
+```
+
+3. Esperar a que los contenedores se inicien. El contenedor PHP servirá los archivos web y el contenedor PostgreSQL ejecutará la base de datos.
+
+4. Abrir el navegador y acceder al proyecto:
+
+```bash 
+http://localhost:8080/index.html
+```
+
+5. Usar el formulario:
+   - Los select de Bodega, Sucursal y Moneda se cargarán automáticamente desde la base de datos.
+   - Completar todos los campos y hacer clic en "Guardar Producto" para registrar un producto nuevo.
+   - Seleccionar al menos dos materiales.
+   - El formulario valida código, nombre, precio y descripción antes de enviar los datos.
+
+
+
+6. Persistencia de datos:
+   - La base de datos PostgreSQL se ejecuta dentro de un contenedor Docker.
+   - Para asegurar que los datos no se pierdan al detener o eliminar los contenedores, se utiliza un **volumen persistente** llamado `postgres_data`.
+   - Este volumen almacena todos los archivos de datos de PostgreSQL fuera del contenedor, en el host. Así, aunque el contenedor se reinicie o se reconstruya, los registros de productos, bodegas, sucursales y monedas se mantienen intactos.
+   - No es necesario exportar ni importar la base de datos manualmente; el volumen gestiona automáticamente la persistencia de los datos.
+
+
+
+7. Para detener y reiniciar los contenedores:
+
+```bash
+docker-compose down
+docker-compose up --build
+```
